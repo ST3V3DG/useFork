@@ -1,0 +1,41 @@
+---
+title: 'Cloud Orb'
+description: 'An animated, shader-driven 3D orb built with React Three Fiber, marbling all its colors together like dye swirling into water, with reactive idle, listening, and speaking states.'
+---
+
+<PreviewCode
+  position="center"
+  className="h-full border-0 relative"
+  secondClassName="lg:w-full h-full flex items-center justify-center"
+  component={<CloudOrbDemo />}
+  codePath="/r/cloud-orb.json"
+/>
+
+<CodePopup>
+
+<HeadingDescription
+  title="Cloud Orb"
+  description="An animated, shader-driven 3D orb built with React Three Fiber, marbling all its colors together like dye swirling into water, with reactive idle, listening, and speaking states."
+/>
+---
+
+### Installation
+
+<CLIManualBlock
+  command={'https://use-fork.vercel.app/r/cloud-orb.json'}
+  codePath="/r/cloud-orb.json"
+/>
+---
+
+### How to use
+
+<CodeBlockComponent codePath="/r/cloud-orb.json" id={4} />
+
+---
+
+### Props
+
+CloudOrb (OrbConfig)
+<Table data={{ flowX: { description: "Horizontal amplitude of the flow offset applied to the sphere's surface coordinates. Higher values push the gradient further side to side over time.", type: 'number', default: '`0.15`', }, flowY: { description: 'Vertical amplitude of the flow offset. Works the same as flowX but on the Y axis; kept at 0 by default for a mostly horizontal drift.', type: 'number', default: '`0`', }, speed: { description: "Global time multiplier for the shader's internal clock (uTime). Controls how fast the whole animation — the color merging, noise, and warp — advances per frame.", type: 'number', default: '`0.06`', }, warpStrength: { description: 'Strength of the domain-warping effect applied before the gradient. Higher values distort the colors more heavily using the fbm noise field, like stirring a liquid harder.', type: 'number', default: '`0.28`', }, colors: { description: "Array of hex color strings (max 16), all contained on the visible sphere surface and continuously merging into one another along a slowly-rotating gradient axis rather than sitting in fixed bands.", type: 'string[]', default: "['#9333EA', '#EC4899', '#FFFFFF']", }, grainAmount: { description: 'Intensity of the film-grain noise added to the final color output, for a subtle textured look.', type: 'number', default: '`0.04`', }, state: { description: 'Current orb state. Drives several behaviors at once: flow direction reverses and speed multiplies 4.5× when speaking so the color-merge is clearly felt, the orb scales down slightly while listening, and a sweeping highlight animates in only while speaking.', type: "'idle' | 'listening' | 'speaking'", default: "'idle'", }, }} />
+
+</CodePopup>
